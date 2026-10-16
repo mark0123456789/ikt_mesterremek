@@ -8,7 +8,7 @@ namespace WarehouseApi.Controllers
     [ApiController]
     public class BacklogController : ControllerBase
     {
-        private readonly string ConnectionString = "server=localhost;database=warehouse;uid=root;password=";
+        private readonly string ConnectionString = "server=localhost;database=furniq;uid=root;password=";
 
         // ?userId=1 és/vagy ?action=Pick|Pack
         [HttpGet]

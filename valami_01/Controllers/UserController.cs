@@ -9,7 +9,7 @@ namespace WarehouseApi.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly string ConnectionString = "server=localhost;database=warehouse;uid=root;password=";
+        private readonly string ConnectionString = "server=localhost;database=furniq;uid=root;password=";
 
         // ?staff=true -> csak dolgozók, ?staff=false -> csak vásárlók
         [HttpGet]
