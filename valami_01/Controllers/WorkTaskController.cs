@@ -9,7 +9,7 @@ namespace WarehouseApi.Controllers
     [ApiController]
     public class WorkTaskController : ControllerBase
     {
-        private readonly string ConnectionString = "server=localhost;database=warehouse;uid=root;password=";
+        private readonly string ConnectionString = "server=localhost;database=furniq;uid=root;password=";
 
         // A tábla tetején látható: hány megrendelés vár még elvégzésre
         // Szűrések: ?name=  (név), ?orderNumber=  (feladat szám)
