@@ -9,5 +9,6 @@ namespace WarehouseApi.Models
         public string Department { get; set; } = "";   // osztály
         public string Shelf { get; set; } = "";         // polc
         public string? SubShelf { get; set; }           // sub polc
+        public int? CreatedByUserId { get; set; }
     }
 }
