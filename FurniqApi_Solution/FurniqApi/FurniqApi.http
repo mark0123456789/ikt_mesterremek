@@ -1,0 +1,77 @@
+@host = http://localhost:5080
+
+### Termékek: szűrés + rendezés + lapozás
+GET {{host}}/api/Product?search=modern&minPrice=100000&sortBy=price&desc=true&page=1&pageSize=5
+
+### Termék részletei
+GET {{host}}/api/Product/1
+
+### Kategóriák / alacsony készlet / legkelendőbb / legjobbra értékelt
+GET {{host}}/api/Product/categories
+GET {{host}}/api/Product/low-stock?threshold=5
+GET {{host}}/api/Product/best-sellers
+GET {{host}}/api/Product/top-rated
+
+### Új termék
+POST {{host}}/api/Product
+Content-Type: application/json
+
+{ "name": "Bookshelf", "description": "Polcos könyvespolc", "price": 59990, "stock": 7, "category": "Shelf", "imageUrl": "shelf.jpg" }
+
+### Készlet módosítása
+PATCH {{host}}/api/Product/1/stock
+Content-Type: application/json
+
+{ "delta": -1 }
+
+### Regisztráció / login
+POST {{host}}/api/User/register
+Content-Type: application/json
+
+{ "name": "Teszt Elek", "email": "teszt@gmail.com", "password": "titok123", "phone": "+36301110000" }
+
+###
+POST {{host}}/api/User/login
+Content-Type: application/json
+
+{ "email": "peter@gmail.com", "password": "test123" }
+
+### Felhasználó részletei
+GET {{host}}/api/User/1
+
+### Kosár
+GET {{host}}/api/users/1/cart
+
+###
+POST {{host}}/api/users/1/cart
+Content-Type: application/json
+
+{ "productId": 4, "quantity": 1 }
+
+### Fizetés (kosárból rendelés)
+POST {{host}}/api/users/1/cart/checkout
+Content-Type: application/json
+
+{ "paymentMethod": "Card", "shippingMethod": "Home delivery" }
+
+### Rendelések szűrése
+GET {{host}}/api/Order?status=Processing&minTotal=100000
+
+### Státuszváltás
+PATCH {{host}}/api/Order/1/status
+Content-Type: application/json
+
+{ "status": "Shipped" }
+
+### Vélemények
+GET {{host}}/api/Review/product/1/summary
+
+### Szobák
+GET {{host}}/api/rooms/kitchen?maxPrice=50000
+GET {{host}}/api/rooms/all?search=szek
+GET {{host}}/api/rooms/summary
+
+### Statisztikák
+GET {{host}}/api/Stats/dashboard
+GET {{host}}/api/Stats/monthly-revenue
+GET {{host}}/api/Stats/top-customers
