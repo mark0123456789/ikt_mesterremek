@@ -117,7 +117,7 @@ public class RoomController(FurniqContext db) : ControllerBase
         return NoContent();
     }
 
-    [HttpPatch("{room}/{id:int}/stock")]
+    [HttpPut("{room}/{id:int}/stock")]
     public async Task<ActionResult<object>> ChangeStock(string room, int id, StockChangeDto dto)
     {
         var type = EntityType(room);

@@ -94,7 +94,7 @@ public class UserController(FurniqContext db) : ControllerBase
         return NoContent();
     }
 
-    [HttpPatch("{id:int}/role")]
+    [HttpPut("{id:int}/role")]
     public async Task<IActionResult> ChangeRole(int id, ChangeRoleDto dto)
     {
         var user = await db.Users.FindAsync(id);
@@ -104,7 +104,7 @@ public class UserController(FurniqContext db) : ControllerBase
         return NoContent();
     }
 
-    [HttpPatch("{id:int}/password")]
+    [HttpPut("{id:int}/password")]
     public async Task<IActionResult> ChangePassword(int id, ChangePasswordDto dto)
     {
         var user = await db.Users.FindAsync(id);

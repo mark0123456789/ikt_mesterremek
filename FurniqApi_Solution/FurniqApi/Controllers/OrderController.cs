@@ -67,7 +67,7 @@ public class OrderController(FurniqContext db) : ControllerBase
     }
 
     /// <summary>Státuszváltás. Lemondáskor a készlet visszakerül.</summary>
-    [HttpPatch("{id:int}/status")]
+    [HttpPut("{id:int}/status")]
     public async Task<ActionResult<OrderDto>> ChangeStatus(int id, UpdateOrderDto dto)
     {
         if (!Statuses.Contains(dto.Status)) return BadRequest(new { message = $"Érvényes státuszok: {string.Join(", ", Statuses)}." });

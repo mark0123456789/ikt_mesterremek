@@ -142,7 +142,7 @@ public class ProductController(FurniqContext db) : ControllerBase
     }
 
     /// <summary>Készletmódosítás (+ beszállítás / - kivét).</summary>
-    [HttpPatch("{id:int}/stock")]
+    [HttpPut("{id:int}/stock")]
     public async Task<ActionResult<object>> ChangeStock(int id, StockChangeDto dto)
     {
         var p = await db.Products.FindAsync(id);

@@ -57,7 +57,7 @@ public class AddressController(FurniqContext db) : ControllerBase
         return NoContent();
     }
 
-    [HttpPatch("addresses/{id:int}/default")]
+    [HttpPut("addresses/{id:int}/default")]
     public async Task<IActionResult> SetDefault(int id)
     {
         var a = await db.Addresses.FindAsync(id);
